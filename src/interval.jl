@@ -184,6 +184,12 @@ end
 
 isclosed(interval::AbstractInterval{T,L,R}) where {T,L,R} = L === Closed && R === Closed
 Base.isopen(interval::AbstractInterval{T,L,R}) where {T,L,R} = L === Open && R === Open
+isleftclosed(interval::AbstractInterval{T,L,R}) where {T,L,R} = L === Closed
+isrightclosed(interval::AbstractInterval{T,L,R}) where {T,L,R} = R === Closed
+isleftopen(interval::AbstractInterval{T,L,R}) where {T,L,R} = L === Open
+isrightopen(interval::AbstractInterval{T,L,R}) where {T,L,R} = R === Open                
+ishalfopenleft(interval::AbstractInterval{T,L,R}) where {T,L,R} = L === Open && R === Closed
+ishalfopenright(interval::AbstractInterval{T,L,R}) where {T,L,R} = L === Closed && R === Open
 isunbounded(interval::AbstractInterval{T,L,R}) where {T,L,R} = L === Unbounded && R === Unbounded
 isbounded(interval::AbstractInterval{T,L,R}) where {T,L,R} = L !== Unbounded && R !== Unbounded
 
